@@ -1,1 +1,59 @@
-Code will be pushed into Github later.
+ActiveDirect is a server-side implementation of Ext.Direct Spec (http://www.extjs.com/products/extjs/direct.php
+) using Rack Middleware.
+
+Introduction:
+http://www.slideshare.net/stonegao/active-direct-talk-directly-with-activerecord-using-extdirect-and-rack-middleware-2328908
+
+* Features : 
+  12 CRUD related methods directable by default 
+  Custom methods can be added using declarations. 
+  Form and Form upload handler support 
+
+
+Install : script/plugin install git@github.com:stonegao/active-direct.git
+
+Configuration : 
+*  Middleware configurations (environment.rb) : 
+   config.middleware.use 'ActiveDirect::Router', '/direct_router'
+   config.middleware.use 'ActiveDirect::Api', '/direct_api', '/direct_router’
+
+* In your Html files : 
+  <script type="text/javascript" src=”/javascripts/ext/adapter/ext/ext-base.js"></script>
+  <script type=“text/javascript” src=”/javascripts/ext/ext-all-debug.js"></script>
+  <script type=“text/javascript” src=”/direct_api"></script>
+ 
+* Add rpc provider : 
+  Ext.Direct.addProvider(App.REMOTING_API);
+
+* Model configurations 
+
+class Category < ActiveRecord::Base
+    acts_as_direct  :root_nodes => 0, :create_new_cat => {:len => 1, :formHandler => true}
+
+    def root_nodes
+
+    end 
+    def create_new_cat(params) 
+
+    end
+end 
+
+  
+
+Examples ( After config correctly, you can write the following code in Javascript)
+
+  App.models.Category.create( { name : ‘ruby’ }  )
+  App.models.Category.update(2,  { name : ‘ruby books’ } )
+  App.models.Category.update_all({ name : ‘ruby books’ },  “ name LIKE ‘%ruby%’ ” )
+  App.models.Category.all()
+  App.models.Category.find( 2 )
+  App.models.Category.find_every( { conditions : “name LIKE ‘%java%’ “ } )
+  App.models.Category.exists( [“ name LIKE ? “,  ‘%java%’ ] )
+  App.models.Category.first()
+  App.models.Category.last()
+  App.models.Category.count()
+  App.models.Category.delete( 2 )
+  App.models.Category.delete_all( “ name LIKE  ‘%java%’  “  )
+
+
+Copyright (c) 2009 Stone Gao (stones.gao at gmail.com), released under the MIT license
