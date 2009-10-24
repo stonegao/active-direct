@@ -1,10 +1,9 @@
 ActiveDirect is a server-side implementation of Ext.Direct Spec (http://www.extjs.com/products/extjs/direct.php
 ) using Rack Middleware.
 
-Introduction:
-http://www.slideshare.net/stonegao/active-direct-talk-directly-with-activerecord-using-extdirect-and-rack-middleware-2328908
+Introduction: http://bit.ly/3LkYpB
 
-* Features : 
+Features : 
   12 CRUD related methods directable by default 
   Custom methods can be added using declarations. 
   Form and Form upload handler support 
