@@ -22,7 +22,7 @@ Configuration :
   <script type=“text/javascript” src=”/direct_api"></script>
  
 * Add rpc provider (in you javascript) : 
-  Ext.Direct.addProvider(App.REMOTING_API);
+  Ext.Direct.addProvider(REMOTING_API);
 
 * Model configurations 
 
