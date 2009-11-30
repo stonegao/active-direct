@@ -22,7 +22,7 @@ module ActiveDirect
         'namespace' =>   'App.models',
         'srv_env'   =>    RAILS_ENV
       }
-      "App.REMOTING_API = #{config.to_json};"
+      "REMOTING_API = #{config.to_json};"
     end
   end
 end

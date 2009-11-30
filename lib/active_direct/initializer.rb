@@ -41,5 +41,9 @@ module ActiveDirect
 
   end
 end
-puts 'initialize......'
-ActiveDirect::Initializer.load_models
+
+if defined?(Rails) && Rails.configuration
+  Rails.configuration.after_initialize do
+    ActiveDirect::Initializer.load_models
+  end
+end
