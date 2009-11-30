@@ -1,3 +1,4 @@
+require File.dirname(__FILE__) + '/active_direct/initializer'
 require File.dirname(__FILE__) + '/active_direct/router'
 require File.dirname(__FILE__) + '/active_direct/config'
 require File.dirname(__FILE__) + '/active_direct/api'
