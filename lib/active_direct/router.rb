@@ -98,7 +98,7 @@ module ActiveDirect
     end
     
     def form_post_and_upload?
-      @post_data["extAction"] && @post_data["extUpload"]
+      @post_data["extAction"] && @post_data["extUpload"] == 'true'
     end
 
     def form_post?
