@@ -2,7 +2,7 @@ module ActiveDirect
   module Initializer
 
     # NOTE : The following code was stealed from the awesome ThinkingSphinx lib :-)
-    # 
+    #
     # Make sure all models are loaded - without reloading any that
     # ActiveRecord::Base is already aware of (otherwise we start to hit some
     # messy dependencies issues).

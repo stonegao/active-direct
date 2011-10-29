@@ -6,11 +6,11 @@ describe "ActiveDirect::Api middleware" do
     get '/direct_api'
     @resp = last_response.body
   end
-  
+
   it "should have valid response" do
     @resp.should include("=")
   end
-  
+
   it "should have valid Ext.Direct remoting api configuration" do
     api_cfg = ActiveSupport::JSON.decode(@resp.split("=").last.delete(";"))
     api_cfg.should be_a_kind_of(Hash)

@@ -19,7 +19,7 @@ module ActiveDirect
       def methods_for(model)
         method_config[model].map {|m| m['name']}
       end
-      
+
     end
   end
 end

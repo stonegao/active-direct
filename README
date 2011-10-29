@@ -3,41 +3,41 @@ ActiveDirect is a server-side implementation of Ext.Direct Spec (http://www.extj
 
 Introduction: http://bit.ly/3LkYpB
 
-Features : 
-  12 CRUD related methods directable by default 
-  Custom methods can be added using declarations. 
-  Form and Form upload handler support 
+Features :
+  12 CRUD related methods directable by default
+  Custom methods can be added using declarations.
+  Form and Form upload handler support
 
 
 Install : script/plugin install git@github.com:stonegao/active-direct.git
 
-Configuration : 
-*  Middleware configurations (environment.rb) : 
+Configuration :
+*  Middleware configurations (environment.rb) :
    config.middleware.use 'ActiveDirect::Router', '/direct_router'
    config.middleware.use 'ActiveDirect::Api', '/direct_api', '/direct_router’
 
-* In your Html files : 
+* In your Html files :
   <script type="text/javascript" src=”/javascripts/ext/adapter/ext/ext-base.js"></script>
   <script type=“text/javascript” src=”/javascripts/ext/ext-all-debug.js"></script>
   <script type=“text/javascript” src=”/direct_api"></script>
- 
-* Add rpc provider (in you javascript) : 
+
+* Add rpc provider (in you javascript) :
   Ext.Direct.addProvider(REMOTING_API);
 
-* Model configurations 
+* Model configurations
 
 class Category < ActiveRecord::Base
     acts_as_direct  :root_nodes => 0, :create_new_cat => {:len => 1, :formHandler => true}
 
     def root_nodes
 
-    end 
-    def create_new_cat(params) 
+    end
+    def create_new_cat(params)
 
     end
-end 
+end
 
-  
+
 
 Examples ( After config correctly, you can write the following code in Javascript)
 
@@ -55,7 +55,7 @@ Examples ( After config correctly, you can write the following code in Javascrip
   App.models.Category.delete_all( “ name LIKE  ‘%java%’  “  )
 
 
-To Do : 
+To Do :
   Add more tests.
 
 Stone Gao (stones.gao at gmail.com), released under the MIT license
