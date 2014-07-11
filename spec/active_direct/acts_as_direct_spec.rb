@@ -27,7 +27,7 @@ describe "ActiveDirect::ActsAsDirect" do
     Video.should respond_to(:acts_as_direct)
     Category.should respond_to(:acts_as_direct)
   end
-  
+
   it "should have a default direct method : create" do
 		Category.count.should == 3
   end
@@ -70,7 +70,7 @@ describe "ActiveDirect::ActsAsDirect" do
 		exists_params = [Category.first.id]
 		json_resp = call_rpc_method_for_category('exists', exists_params)
 		json_resp['result'].should == true
-		
+
 		exists_params =  [ [" name LIKE ? ", '%category%'] ]
 		json_resp = call_rpc_method_for_category('exists', exists_params)
 		json_resp['result'].should == true

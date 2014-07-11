@@ -15,7 +15,7 @@ describe "ActiveDirect::Config" do
       end
     end
   end
-  
+
   it "should have custom direct methods" do
     model = 'Video'
     custom_methods = ['create_attachment', 'direct_method']
@@ -23,11 +23,11 @@ describe "ActiveDirect::Config" do
       ActiveDirect::Config.has_method?(model, method).should be_true
     end
   end
-  
+
   it "should have custom direct method (formHandler)" do
     model = 'Video'
     method_name = 'create_attachment'
     ActiveDirect::Config.method_config[model].any? { |m| m['name'] == method_name && m[:formHandler] == true}.should be_true
   end
-  
+
 end
